@@ -1,0 +1,19 @@
+$spacing-base-unit: 8px !default;
+
+@function normalize($size) {
+  @return ($size * $spacing-base-unit);
+}
+
+@function spacing($t, $r: null, $b: null, $l: null) {
+  @if ($t and $r and $b and $l) {
+    @return normalize($t) normalize($r) normalize($b) normalize($l);
+  } @else if ($t and $r and $b and not $l) {
+    @return normalize($t) normalize($r) normalize($b);
+  } @else if ($t and $r and not $b and not $l) {
+    @return normalize($t) normalize($r);
+  } @else if ($t and not $r and not $b and not $l) {
+    @return normalize($t);
+  } @else {
+    @error "m(#{$t}, #{$r}, #{$b}, #{$l}): Invalid parameters. Expects m($size), m($y, $x), m($t, $x, $b) or m($t, $r, $b, $l)";
+  }
+}
