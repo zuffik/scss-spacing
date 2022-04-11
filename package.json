@@ -2,7 +2,9 @@
   "name": "@zuffik/scss-spacing",
   "version": "1.0.0",
   "main": "index.scss",
-  "repository": "git@github.com:zuffik/scss-spacing.git",
+  "repository": "https://github.com/zuffik/scss-spacing.git",
+  "homepage": "https://github.com/zuffik/scss-spacing.git",
+  "private": false,
   "author": "Kristián Žuffa <kristian.zuffa@gmail.com>",
   "license": "MIT"
 }
