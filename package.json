@@ -6,5 +6,11 @@
   "homepage": "https://github.com/zuffik/scss-spacing.git",
   "private": false,
   "author": "Kristián Žuffa <kristian.zuffa@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "sass-rem": "3.0.0"
+  },
+  "peerDependencies": {
+    "sass": "*"
+  }
 }

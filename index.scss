@@ -1,3 +1,5 @@
+@import "~sass-rem";
+
 $spacing-base-unit: 8px !default;
 
 @function normalize($size) {
@@ -13,6 +15,20 @@ $spacing-base-unit: 8px !default;
     @return normalize($t) normalize($r);
   } @else if ($t and not $r and not $b and not $l) {
     @return normalize($t);
+  } @else {
+    @error "m(#{$t}, #{$r}, #{$b}, #{$l}): Invalid parameters. Expects m($size), m($y, $x), m($t, $x, $b) or m($t, $r, $b, $l)";
+  }
+}
+
+@function remSpacing($t, $r: null, $b: null, $l: null) {
+  @if ($t and $r and $b and $l) {
+    @return rem(spacing($t)) rem(spacing($r)) rem(spacing($b)) rem(spacing($l));
+  } @else if ($t and $r and $b and not $l) {
+    @return rem(spacing($t)) rem(spacing($r)) rem(spacing($b));
+  } @else if ($t and $r and not $b and not $l) {
+    @return rem(spacing($t)) rem(spacing($r));
+  } @else if ($t and not $r and not $b and not $l) {
+    @return rem(spacing($t));
   } @else {
     @error "m(#{$t}, #{$r}, #{$b}, #{$l}): Invalid parameters. Expects m($size), m($y, $x), m($t, $x, $b) or m($t, $r, $b, $l)";
   }
