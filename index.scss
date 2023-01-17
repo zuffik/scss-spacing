@@ -3,7 +3,10 @@
 $spacing-base-unit: 8px !default;
 
 @function normalize($size) {
-  @return ($size * $spacing-base-unit);
+  @if type-of($size) == 'number' {
+    @return ($size * $spacing-base-unit);
+  }
+  @return calc(#{$size} * #{$spacing-base-unit});
 }
 
 @function spacing($t, $r: null, $b: null, $l: null) {
